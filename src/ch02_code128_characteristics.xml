@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE chapter
+[
+
+<!ENTITY % crl_ent PUBLIC "crl.ent" 'http://www.crifan.com/files/res/docbook/entity/crl.ent'>
+%crl_ent;
+
+]>
+
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xml:id="ch02_code128_characteristics"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Code 128 Characteristics</title>
+<abstract></abstract>
+
+<sect1><title>Start Character</title>
+    <para>As you can see in <xref linkend="tbl.enc_code_table" /></para>
+    <para>The three start characters are: </para>
+    <para>"START A"=103, "START B"=104, "START C"=105</para>
+</sect1>
+
+<sect1><title>Code and Shift</title>
+    <para>As you can see in <xref linkend="tbl.enc_code_table" />, three CODEs are: "Code A", "Code B", "Code C".</para>
+    <para>Within a symbol, one can shift between code sets by using the special character CODE and SHIFT.</para>
+    <para>The <emphasis>CODE</emphasis> character shifts the code for <emphasis>all subsequent characters</emphasis> to the specified code set.</para>
+    <para>The <emphasis>SHIFT</emphasis> character just changes the <emphasis>next character</emphasis> and <emphasis>only</emphasis> changes <emphasis>between Code Set A and Code Set B</emphasis> or the reverse.</para>
+    <para>So, within the data in Code 128, changes to other character Set:</para>
+    <para>For character set A: change to character set B is "Code B=100", to character set C is "Code C=99"</para>
+    <para>For character set B: change to character set A is "Code A=101", to character set C is "Code A=99"</para>
+    <para>For character set C: change to character set A is "Code B=101", to character set C is "Code B=100"</para>
+    <para>The example of changing to Character Set C in Character Set A using 99 = "Code C", can be found in later <xref linkend="calc_check_digit" />.</para>
+</sect1>
+
+<sect1><title>Character set usage domain</title>
+    <para>Generally:</para>
+    <para>Character Set A: encodes all upper case ('A=33' to 'Z=58') and ASCII control characters ('NUL=64' to 'US=95');</para>
+    <para>Character Set B: encodes all upper ('A=33' to 'Z=58') and lower ('a=65' to 'z=90') case characters;</para>
+    <para>Character Set C: encodes numeric digit pairs 00 through 99 ('00=00' to '99=99').</para>
+    <para>Character Set A and B: used to encode alpha-numeric information</para>
+    <para>Character Set C : offers double density when being used to encode numeric data, which means use a single value/code, decoded as two digital value/data, that is  one value = two data.</para>
+    <para>This third character set - Character Set C, effectively doubles the code density when printing numeric data.</para>
+</sect1>
+
+<sect1><title>Function Code</title>
+    <para>In addition to ASCII characters, Code 128 also allows encoding of four special function codes (FNC1 - FNC4), which are listed in <xref linkend="tbl.enc_code_table" />.</para>
+    <para>The meaning of function code FNC1 and FNC4 were originally left open for application specific purposes.</para>
+    
+    <sect2><title>FNC1</title>
+        <para>Recently an agreement was made by the Automatic Identification Manufacturers Assoc. (AIM) and the European Article Numbering Assoc. (EAN) to reserve <emphasis>FNC1</emphasis> for use in <emphasis>EAN applications</emphasis>.</para>
+        <para>FNC1 at the beginning of a bar code indicates that it begins with a 2- 3- or 4-digit application identifier assigned by the Uniform Code Council, which explains the following digits. For example, application identifier 421 indicates that an ISO 3166-1 numeric country code and ship-to postal code follows. </para>
+        <para>For example, the U.S. ZIP code for the White House would generally be printed as "(421) 840 20500", but would actually be coded as "[Start C] [FNC1] 42 18 40 20 50 [Code A] 0 [Check symbol 80] [Stop]"</para>
+        <tip><title>The FNC1 for the UCC/EAN-128</title>
+            <para>The function 1 (FNC 1), which follows the start character, enables scanners and processing software to auto-discriminate between UCC/EAN-128 and other barcode symbologies, and subsequently only process relevant data.</para>
+        </tip>
+    </sect2>
+    
+    <sect2><title>FNC2</title>
+        <para><emphasis>FNC2</emphasis> is used to instruct a bar code reader to <emphasis>concatenate</emphasis> the message in a bar code symbol with the message in the next symbol.</para>
+    </sect2>
+    
+    <sect2><title>FNC3</title>
+        <para><emphasis>FNC3</emphasis> is used to instruct a bar code reader to perform a <emphasis>reset</emphasis>. When FNC3 is encoded anywhere in a symbol, any data also contained in the symbol is discarded. </para>
+    </sect2>
+    
+    <sect2><title>FNC4</title>
+        <para><emphasis>FNC4</emphasis> remains available for use in <emphasis>closed system applications</emphasis></para>
+    </sect2>
+
+</sect1>
+
+<sect1 id="calc_check_digit"><title>Calculate the Check/Checksum Digit</title>
+    <para>Before a Code 128 symbol may be encoded, the software must compute the correct checksum digit which will be included in the bar code. The checksum digit is based on <emphasis>Modulus 103 Checksum</emphasis> based on the weighted sum of the values of each of the digits in the message that is being encoded, including the start character. </para>
+    <para>The steps for calculating the check digit are as follows: </para>
+    <orderedlist>
+        <listitem>Take the value of the start character ("START A"=103, or  "START B"=104, or "START C"=105) and make that the starting value of the running checksum. </listitem>
+        <listitem>Starting with the first data character following the start character, take the value of the character (between 0 and 102, inclusive) multiply it by its character position (1) and add that to the running checksum. </listitem>
+        <listitem>Take each additional character in the message, take its value, and multiply it by its character position, and add the total to the running checksum</listitem>
+        <listitem>use the resulting to MOD 13, that is divide the resulting running checksum by 103, then the remainder is the checksum digit, which is added to the end of the message</listitem>
+        <listitem>The stop character is appended after the checksum digit. </listitem>
+    </orderedlist>
+    <para>This is easier to understand with an example. </para>
+    <para>Let's calculate the checksum digit for the sample bar code above, "<emphasis>HI345678</emphasis>". </para>
+    <para>The checksum digit is included in all Code 128 bar codes, but it isn't printed as part of the text below the bar code symbol (as is the case with UPC and EAN symbols). </para>
+    <table id="tbl.calc_cd_for_hi345678"><title>Calculate checksum digit of "HI345678"</title>
+        <tgroup cols="8">
+            <colspec colnum="1" colname="col1" colwidth="2*" />
+            <colspec colnum="2" colname="col2" colwidth="1*" />
+            <colspec colnum="3" colname="col3" colwidth="1*" />
+            <colspec colnum="4" colname="col4" colwidth="1*" />
+            <colspec colnum="5" colname="col5" colwidth="1*" />
+            <colspec colnum="6" colname="col6" colwidth="1*" />
+            <colspec colnum="7" colname="col7" colwidth="1*" />
+            <colspec colnum="8" colname="col8" colwidth="1*" />
+            
+            <thead>
+                <row><entry>Barcode</entry><entry>START-A</entry><entry>H</entry><entry>I</entry><entry><emphasis>CODE C</emphasis></entry><entry>34</entry><entry>56</entry><entry>78</entry></row>
+            </thead>
+            
+            <tbody>
+                <row><entry>Character Value</entry><entry>103</entry><entry>40</entry><entry>41</entry><entry><emphasis>99</emphasis></entry><entry>34</entry><entry>56</entry><entry>78</entry></row>
+                <row><entry>Character Position</entry><entry>-</entry><entry>1</entry><entry>2</entry><entry>3</entry><entry>4</entry><entry>5</entry><entry>6</entry></row>
+                <row><entry>Calculation</entry><entry>103</entry><entry>40 * 1</entry><entry>41 * 2</entry><entry>99 * 3</entry><entry>34 * 4</entry><entry>56 * 5</entry><entry>78 * 6</entry></row>
+                <row><entry>Weighted Sum</entry><entry>103</entry><entry>40</entry><entry>82</entry><entry>297</entry><entry>136</entry><entry>280</entry><entry>468</entry></row>
+            </tbody>
+        </tgroup>
+    </table>
+    <para>Summing up the running checksum for each digit, we get:</para>
+    <para>103 + 40 + 82 + 297 + 136 + 280 + 468 = 1406</para>
+    <para>Then,</para>
+    <para>1046 MOD 13 = the remainder of 1406 / 103 = 67</para>
+    <para>Thus the checksum digit is the character which has a value of 67.</para>
+    <note>
+        <orderedlist>
+            <listitem>Note that the checksum starts with the first Start Character, with a weight of 1, and that the first data character also has a weight of 1.</listitem>
+            <listitem>In my understanding, the above "<emphasis>CODE-C=99</emphasis>" is the generated barcode, but not displayed/printed, just like the check digit.</listitem>
+        </orderedlist>
+    </note>
+</sect1>
+
+<sect1><title>Structure / Composition of Code 128</title>
+    <table id="tbl.struct_code_128"><title>Structure of Code 128</title>
+        <tgroup cols="5">
+            <colspec colnum="1" colname="col1" colwidth="2*" />
+            <colspec colnum="2" colname="col2" colwidth="1*" />
+            <colspec colnum="3" colname="col3" colwidth="1*" />
+            <colspec colnum="4" colname="col4" colwidth="1*" />
+            <colspec colnum="5" colname="col5" colwidth="1*" />
+
+            <tbody>
+                <row><entry>one of three <emphasis>start codes</emphasis><literallayout>"START "=103, or
+"START B"=104, or
+"START C"=105</literallayout></entry><entry>the <emphasis>data</emphasis> itself</entry><entry>a <emphasis>check character</emphasis></entry><entry>a <emphasis>stop character</emphasis></entry><entry>Termination bar of 11</entry></row>
+            </tbody>
+        </tgroup>
+    </table>
+    <para>We will now code the above example, <emphasis>HI345678</emphasis>, in Code 128. As we calculated in the Checksum Digit Calculation section, the checksum digit is 67. So we must also code the checksum digit at the end of the message. </para>
+    <para>We encode each digit using the encoding table above:</para>
+    <orderedlist>
+        <listitem>The START-A character: <emphasis>11010000100</emphasis></listitem>
+        <listitem>The digit "H" encoded as: <emphasis>11000101000</emphasis></listitem>
+        <listitem>The digit "I" encoded as: <emphasis>11000100010</emphasis></listitem>
+        <listitem>The "CODE-C" character: <emphasis>10111011110</emphasis></listitem>
+        <listitem>The digits "34" encoded as: <emphasis>10001011000</emphasis></listitem>
+        <listitem>The digits "56" encoded as: <emphasis>11100010110</emphasis></listitem>
+        <listitem>The digits "78" encoded as: <emphasis>11000010100</emphasis></listitem>
+        <listitem>The checksum digit of 67 encoded as: <emphasis>10000101100</emphasis></listitem>
+        <listitem>The STOP character: <emphasis>11000111010</emphasis></listitem>
+        <listitem>The termination bar: <emphasis>11</emphasis></listitem>
+    </orderedlist>
+    <para>This is shown in the following graphical representation where the bar code has been sectioned-off into areas that reflect each of the 10 components just mentioned.</para>
+    <figure id="fg.struct_of_HI345678"><title>Structure of Code Example for HI345678</title>
+        <mediaobject>
+            <imageobject role="html">
+                <imagedata fileref="images/struct_of_HI345678.png" align="left" scalefit="0" width="100%" />
+            </imageobject>
+            <imageobject role="fo">
+                <imagedata fileref="images/struct_of_HI345678.png" align="center" scalefit="0" width="80%" />
+            </imageobject>
+        </mediaobject>
+    </figure>
+    <note>
+        <para>Also others describe the structure Code 128 like this:</para>
+        <table id="tbl.struct_code_128_quiet_zone"><title>Structure of Code 128 with quiet zone</title>
+            <tgroup cols="6">
+                <colspec colnum="1" colname="col1" colwidth="1*" />
+                <colspec colnum="2" colname="col2" colwidth="2*" />
+                <colspec colnum="3" colname="col3" colwidth="1*" />
+                <colspec colnum="4" colname="col4" colwidth="1*" />
+                <colspec colnum="5" colname="col5" colwidth="1*" />
+                <colspec colnum="6" colname="col6" colwidth="1*" />
+
+                <tbody>
+                    <row><entry>a leading quiet zone</entry><entry>one of three <emphasis>start codes</emphasis><literallayout>"START "=103, or
+"START B"=104, or
+"START C"=105</literallayout></entry><entry>the <emphasis>data</emphasis> itself</entry><entry>a <emphasis>check character</emphasis></entry><entry>a <emphasis>stop character</emphasis></entry><entry>a trailing quiet zone</entry></row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>Then this picture illuminates it well:</para>
+        <figure id="fg.struct_of_Code_128"><title>Structure of Code 128 with quiet zone</title>
+            <mediaobject>
+                <imageobject role="html">
+                    <imagedata fileref="images/struct_of_Code_128.png" align="left" scalefit="0" width="100%" />
+                </imageobject>
+                <imageobject role="fo">
+                    <imagedata fileref="images/struct_of_Code_128.png" align="center" scalefit="1" width="100%" />
+                </imageobject>
+            </mediaobject>
+        </figure>
+    </note>
+</sect1>
+
+<sect1><title>Compare to Other symbology</title>
+    <para>For Code 39, Code 93, Code 128, EAN /UCC 128:</para>
+    <para>There are all variable length alphanumeric symbology.</para>
+    <para>And their "Data Capacity" - the practical upper limit, dependent on the scanner and is typically between 20 and 40 characters. </para>
+    <para><emphasis>Code 128 is more efficient at encoding data than Code 39 or Code 93.</emphasis></para>
+    <para><emphasis>Code 128 is the best choice for most general bar code applications.</emphasis></para>
+    <para><emphasis>Code 39 and Code 128 are both very widely used while Code 93 is rarely used.</emphasis></para>
+</sect1>
+
+<sect1 id="other_related_info"><title>Other related info</title>
+    <para>GS1-128, formerly called UCC/EAN-128  (UCC-128 or EAN-128) only can encode numeric data using the Code 128 Character Set C.</para>
+    <para>UCC/EAN-128 starts with character C, follow FNC1 character( 102) and other data.</para>
+</sect1>
+
+</chapter>

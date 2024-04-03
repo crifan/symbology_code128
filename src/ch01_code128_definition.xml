@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE chapter
+[
+
+<!ENTITY % crl_ent PUBLIC "crl.ent" 'http://www.crifan.com/files/res/docbook/entity/crl.ent'>
+%crl_ent;
+
+]>
+
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xml:id="ch01_code128_definition"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Code 128 Definition</title>
+<abstract></abstract>
+
+<sect1><title>Symbology</title>
+    <para>Code 128 is a variable length, high density, alphanumeric symbology.</para>
+    <para>It is a very effective, high-density symbology which encoding of alphanumeric data. </para>
+    <note>
+        <para>high-density: the high density means: when encoding the numeric data, then using Code set C, which using one code to represent two digital data. While normally using one code represent one digit/data.</para>
+    </note>
+</sect1>
+
+<sect1><title>Checksum Digit</title>
+    <para>Code 128 also employs a check digit for data security.</para>
+    <para><emphasis>Code 128 symbology must include a checksum digit.</emphasis></para>
+</sect1>
+
+<sect1><title>Character set</title>
+    <para>Code 128 has three characters Set: A, B, C.</para>
+    <para>Code 128 has 106 different bar and space patterns and each pattern can have one of three different meanings, depending on which of three different character sets (characters Set  A/B/ C) is employed.</para>
+    <para>Three different start characters tell the reader the character set used in the following encoding, and three shift codes permits changing character set inside the symbol. </para>
+    <para>So, sometime you can see some item like this: </para>
+    <itemizedlist>
+        <listitem>Code 128 - A, Code 128 - B, Code 128 - C</listitem>
+        <listitem>Code128-A, Code128–B, Code128–C</listitem>
+        <listitem>Code128A, Code128B, Code128C</listitem>
+    </itemizedlist>
+</sect1>
+
+</chapter>

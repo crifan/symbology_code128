@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE chapter
+[
+
+<!ENTITY % crl_ent PUBLIC "crl.ent" 'http://www.crifan.com/files/res/docbook/entity/crl.ent'>
+%crl_ent;
+
+]>
+
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xml:id="appendix"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Append</title>
+<abstract></abstract>
+
+<sect1><title></title>
+    <para>This table indicates how to encode each digit of a Code 128 bar code.</para>
+    <para>Note that it is easiest to think of <emphasis>each character as a value between 0 and 105</emphasis>, inclusive, rather than thinking of them as characters. </para>
+    <para>The character that a value represents depends on what mode (or character set) you're in-so rather than thinking of a character as "A" or "B", etc. it is more appropriate to think of it as 33, 34, etc.</para>
+    <table id="tbl.enc_code_table"><title>Encoding Code Table</title>
+        <tgroup cols="10">
+            <colspec colnum="1" colname="col1" colwidth="1.5*" />
+            <colspec colnum="2" colname="col2" colwidth="1.2*" />
+            <colspec colnum="3" colname="col3" colwidth="1.2*" />
+            <colspec colnum="4" colname="col4" colwidth="1.2*" />
+            <colspec colnum="5" colname="col5" colwidth="2.5*" />
+            <colspec colnum="6" colname="col6" colwidth="1.5*" />
+            <colspec colnum="7" colname="col7" colwidth="1.2*" />
+            <colspec colnum="8" colname="col8" colwidth="1.2*" />
+            <colspec colnum="9" colname="col9" colwidth="1.2*" />
+            <colspec colnum="10" colname="col10" colwidth="2.5*" />
+            
+            <thead>
+                <row><entry morerows="1" valign="middle" >VALUE</entry><entry namest="col2" nameend="col4" align="center" >WHICH REPRESENTS IN CHARACTER SET</entry><entry morerows="1" valign="middle" >ENCODING</entry><entry morerows="1" valign="middle" >VALUE</entry><entry namest="col7" nameend="col9" align="center" >WHICH REPRESENTS IN CHARACTER SET</entry><entry>ENCODING</entry></row>
+                <row><entry colname="col2" >A</entry><entry>B</entry><entry>C</entry><entry colname="col7" >A</entry><entry>B</entry><entry>C</entry></row>
+            </thead>
+            
+            <tbody>
+<row><entry>00</entry><entry>SP</entry><entry>SP</entry><entry>00</entry><entry>11011001100</entry><entry>53</entry><entry>U</entry><entry>U</entry><entry>53</entry><entry>11011101110</entry></row>
+<row><entry>01</entry><entry>!</entry><entry>!</entry><entry>01</entry><entry>11001101100</entry><entry>54</entry><entry>V</entry><entry>V</entry><entry>54</entry><entry>11101011000</entry></row>
+<row><entry>02</entry><entry>"</entry><entry>"</entry><entry>02</entry><entry>11001100110</entry><entry>55</entry><entry>W</entry><entry>W</entry><entry>55</entry><entry>11101000110</entry></row>
+<row><entry>03</entry><entry>#</entry><entry>#</entry><entry>03</entry><entry>10010011000</entry><entry>56</entry><entry>X</entry><entry>X</entry><entry>56</entry><entry>11100010110</entry></row>
+<row><entry>04</entry><entry>$</entry><entry>$</entry><entry>04</entry><entry>10010001100</entry><entry>57</entry><entry>Y</entry><entry>Y</entry><entry>57</entry><entry>11101101000</entry></row>
+<row><entry>05</entry><entry>%</entry><entry>%</entry><entry>05</entry><entry>10001001100</entry><entry>58</entry><entry>Z</entry><entry>Z</entry><entry>58</entry><entry>11101100010</entry></row>
+<row><entry>06</entry><entry>&amp;</entry><entry>&amp;</entry><entry>06</entry><entry>10011001000</entry><entry>59</entry><entry>[</entry><entry>[</entry><entry>59</entry><entry>11100011010</entry></row>
+<row><entry>07</entry><entry>'</entry><entry>'</entry><entry>07</entry><entry>10011000100</entry><entry>60</entry><entry>\</entry><entry>\</entry><entry>60</entry><entry>11101111010</entry></row>
+<row><entry>08</entry><entry>(</entry><entry>(</entry><entry>08</entry><entry>10001100100</entry><entry>61</entry><entry>]</entry><entry>]</entry><entry>61</entry><entry>11001000010</entry></row>
+<row><entry>09</entry><entry>)</entry><entry>)</entry><entry>09</entry><entry>11001001000</entry><entry>62</entry><entry>^</entry><entry>^</entry><entry>62</entry><entry>11110001010</entry></row>
+<row><entry>10</entry><entry>*</entry><entry>*</entry><entry>10</entry><entry>11001000100</entry><entry>63</entry><entry>_</entry><entry>_</entry><entry>63</entry><entry>10100110000</entry></row>
+<row><entry>11</entry><entry>+</entry><entry>+</entry><entry>11</entry><entry>11000100100</entry><entry>64</entry><entry>NUL</entry><entry>`</entry><entry>64</entry><entry>10100001100</entry></row>
+<row><entry>12</entry><entry>,</entry><entry>,</entry><entry>12</entry><entry>10110011100</entry><entry>65</entry><entry>SOH</entry><entry>a</entry><entry>65</entry><entry>10010110000</entry></row>
+<row><entry>13</entry><entry>-</entry><entry>-</entry><entry>13</entry><entry>10011011100</entry><entry>66</entry><entry>STX</entry><entry>b</entry><entry>66</entry><entry>10010000110</entry></row>
+<row><entry>14</entry><entry>.</entry><entry>.</entry><entry>14</entry><entry>10011001110</entry><entry>67</entry><entry>ETX</entry><entry>c</entry><entry>67</entry><entry>10000101100</entry></row>
+<row><entry>15</entry><entry>/</entry><entry>/</entry><entry>15</entry><entry>10111001100</entry><entry>68</entry><entry>EOT</entry><entry>d</entry><entry>68</entry><entry>10000100110</entry></row>
+<row><entry>16</entry><entry>0</entry><entry>0</entry><entry>16</entry><entry>10011101100</entry><entry>69</entry><entry>ENQ</entry><entry>e</entry><entry>69</entry><entry>10110010000</entry></row>
+<row><entry>17</entry><entry>1</entry><entry>1</entry><entry>17</entry><entry>10011100110</entry><entry>70</entry><entry>ACK</entry><entry>f</entry><entry>70</entry><entry>10110000100</entry></row>
+<row><entry>18</entry><entry>2</entry><entry>2</entry><entry>18</entry><entry>11001110010</entry><entry>71</entry><entry>BEL</entry><entry>g</entry><entry>71</entry><entry>10011010000</entry></row>
+<row><entry>19</entry><entry>3</entry><entry>3</entry><entry>19</entry><entry>11001011100</entry><entry>72</entry><entry>BS </entry><entry>h</entry><entry>72</entry><entry>10011000010</entry></row>
+<row><entry>20</entry><entry>4</entry><entry>4</entry><entry>20</entry><entry>11001001110</entry><entry>73</entry><entry>HT </entry><entry>i</entry><entry>73</entry><entry>10000110100</entry></row>
+<row><entry>21</entry><entry>5</entry><entry>5</entry><entry>21</entry><entry>11011100100</entry><entry>74</entry><entry>LF </entry><entry>j</entry><entry>74</entry><entry>10000110010</entry></row>
+<row><entry>22</entry><entry>6</entry><entry>6</entry><entry>22</entry><entry>11001110100</entry><entry>75</entry><entry>VT </entry><entry>k</entry><entry>75</entry><entry>11000010010</entry></row>
+<row><entry>23</entry><entry>7</entry><entry>7</entry><entry>23</entry><entry>11101101110</entry><entry>76</entry><entry>FF </entry><entry>l</entry><entry>76</entry><entry>11001010000</entry></row>
+<row><entry>24</entry><entry>8</entry><entry>8</entry><entry>24</entry><entry>11101001100</entry><entry>77</entry><entry>CR </entry><entry>m</entry><entry>77</entry><entry>11110111010</entry></row>
+<row><entry>25</entry><entry>9</entry><entry>9</entry><entry>25</entry><entry>11100101100</entry><entry>78</entry><entry>SO </entry><entry>n</entry><entry>78</entry><entry>11000010100</entry></row>
+<row><entry>26</entry><entry>:</entry><entry>:</entry><entry>26</entry><entry>11100100110</entry><entry>79</entry><entry>SI </entry><entry>o</entry><entry>79</entry><entry>10001111010</entry></row>
+<row><entry>27</entry><entry>;</entry><entry>;</entry><entry>27</entry><entry>11101100100</entry><entry>80</entry><entry>DLE</entry><entry>p</entry><entry>80</entry><entry>10100111100</entry></row>
+<row><entry>28</entry><entry>&lt;</entry><entry>&lt;</entry><entry>28</entry><entry>11100110100</entry><entry>81</entry><entry>DC1</entry><entry>q</entry><entry>81</entry><entry>10010111100</entry></row>
+<row><entry>29</entry><entry>=</entry><entry>=</entry><entry>29</entry><entry>11100110010</entry><entry>82</entry><entry>DC2</entry><entry>r</entry><entry>82</entry><entry>10010011110</entry></row>
+<row><entry>30</entry><entry>&gt;</entry><entry>&gt;</entry><entry>30</entry><entry>11011011000</entry><entry>83</entry><entry>DC3</entry><entry>s</entry><entry>83</entry><entry>10111100100</entry></row>
+<row><entry>31</entry><entry>?</entry><entry>?</entry><entry>31</entry><entry>11011000110</entry><entry>84</entry><entry>DC4</entry><entry>t</entry><entry>84</entry><entry>10011110100</entry></row>
+<row><entry>32</entry><entry>@</entry><entry>@</entry><entry>32</entry><entry>11000110110</entry><entry>85</entry><entry>NAK</entry><entry>u</entry><entry>85</entry><entry>10011110010</entry></row>
+<row><entry>33</entry><entry>A</entry><entry>A</entry><entry>33</entry><entry>10100011000</entry><entry>86</entry><entry>SYN</entry><entry>v</entry><entry>86</entry><entry>11110100100</entry></row>
+<row><entry>34</entry><entry>B</entry><entry>B</entry><entry>34</entry><entry>10001011000</entry><entry>87</entry><entry>ETB</entry><entry>w</entry><entry>87</entry><entry>11110010100</entry></row>
+<row><entry>35</entry><entry>C</entry><entry>C</entry><entry>35</entry><entry>10001000110</entry><entry>88</entry><entry>CAN</entry><entry>x</entry><entry>88</entry><entry>11110010010</entry></row>
+<row><entry>36</entry><entry>D</entry><entry>D</entry><entry>36</entry><entry>10110001000</entry><entry>89</entry><entry>EM</entry><entry>y</entry><entry>89</entry><entry>11011011110</entry></row>
+<row><entry>37</entry><entry>E</entry><entry>E</entry><entry>37</entry><entry>10001101000</entry><entry>90</entry><entry>SUB</entry><entry>z</entry><entry>90</entry><entry>11011110110</entry></row>
+<row><entry>38</entry><entry>F</entry><entry>F</entry><entry>38</entry><entry>10001100010</entry><entry>91</entry><entry>ESC</entry><entry>{</entry><entry>91</entry><entry>11110110110</entry></row>
+<row><entry>39</entry><entry>G</entry><entry>G</entry><entry>39</entry><entry>11010001000</entry><entry>92</entry><entry>FS </entry><entry>|</entry><entry>92</entry><entry>10101111000</entry></row>
+<row><entry>40</entry><entry>H</entry><entry>H</entry><entry>40</entry><entry>11000101000</entry><entry>93</entry><entry>GS </entry><entry>}</entry><entry>93</entry><entry>10100011110</entry></row>
+<row><entry>41</entry><entry>I</entry><entry>I</entry><entry>41</entry><entry>11000100010</entry><entry>94</entry><entry>RS </entry><entry>~</entry><entry>94</entry><entry>10001011110</entry></row>
+<row><entry>42</entry><entry>J</entry><entry>J</entry><entry>42</entry><entry>10110111000</entry><entry>95</entry><entry>US </entry><entry>DEL</entry><entry>95</entry><entry>10111101000</entry></row>
+<row><entry>43</entry><entry>K</entry><entry>K</entry><entry>43</entry><entry>10110001110</entry><entry>96</entry><entry>&bgcolor_red;FNC3</entry><entry>&bgcolor_red;FNC3</entry><entry>96</entry><entry>10111100010</entry></row>
+<row><entry>44</entry><entry>L</entry><entry>L</entry><entry>44</entry><entry>10001101110</entry><entry>97</entry><entry>&bgcolor_red;FNC2</entry><entry>&bgcolor_red;FNC2</entry><entry>97</entry><entry>11110101000</entry></row>
+<row><entry>45</entry><entry>M</entry><entry>M</entry><entry>45</entry><entry>10111011000</entry><entry>98</entry><entry>SHIFT</entry><entry>SHIFT</entry><entry>98</entry><entry>11110100010</entry></row>
+<row><entry>46</entry><entry>N</entry><entry>N</entry><entry>46</entry><entry>10111000110</entry><entry>99</entry><entry>&bgcolor_green;Code C</entry><entry>&bgcolor_green;Code C </entry><entry>99</entry><entry>10111011110</entry></row>
+<row><entry>47</entry><entry>O</entry><entry>O</entry><entry>47</entry><entry>10001110110</entry><entry>100</entry><entry>&bgcolor_green;Code B</entry><entry>&bgcolor_red;FNC4</entry><entry>&bgcolor_green;Code B</entry><entry>10111101110</entry></row>
+<row><entry>48</entry><entry>P</entry><entry>P</entry><entry>48</entry><entry>11101110110</entry><entry>101</entry><entry>&bgcolor_red;FNC4</entry><entry>&bgcolor_green;Code A</entry><entry>&bgcolor_green;Code A</entry><entry>11101011110</entry></row>
+<row><entry>49</entry><entry>Q</entry><entry>Q</entry><entry>49</entry><entry>11010001110</entry><entry>102</entry><entry>&bgcolor_red;FNC1</entry><entry>&bgcolor_red;FNC1</entry><entry>&bgcolor_red;FNC1</entry><entry>11110101110</entry></row>
+<row><entry>50</entry><entry>R</entry><entry>R</entry><entry>50</entry><entry>11000101110</entry><entry>103</entry><entry>&bgcolor_blue;START A</entry><entry>&bgcolor_blue;START A</entry><entry>&bgcolor_blue;START A</entry><entry>11010000100</entry></row>
+<row><entry>51</entry><entry>S</entry><entry>S</entry><entry>51</entry><entry>11011101000</entry><entry>104</entry><entry>&bgcolor_blue;START B</entry><entry>&bgcolor_blue;START B</entry><entry>&bgcolor_blue;START B</entry><entry>11010010000</entry></row>
+<row><entry>52</entry><entry>T</entry><entry>T</entry><entry>52</entry><entry>11011100010</entry><entry>105</entry><entry>&bgcolor_blue;START C</entry><entry>&bgcolor_blue;START C</entry><entry>&bgcolor_blue;START C</entry><entry>11010011100</entry></row>
+<row><entry namest="col1" nameend="col5" align="center" ></entry><entry></entry><entry>STOP</entry><entry>STOP</entry><entry>STOP</entry><entry>11000111010</entry></row>
+            </tbody>
+        </tgroup>
+    </table>
+    <note>
+        <para>There are three type special values:</para>
+        <itemizedlist>
+            <listitem>Green Color is <emphasis>Shift Code of Character Set</emphasis></listitem>
+            <listitem>Blue Color is <emphasis>Start character</emphasis></listitem>
+            <listitem>Red Color is <emphasis>Function Code</emphasis></listitem>
+        </itemizedlist>
+    </note>
+
+</sect1>
+
+</chapter>

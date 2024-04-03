@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<glossary xmlns="http://docbook.org/ns/docbook"
+    xml:id="glossary"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Glossary</title>
+
+<glossentry id="Value"><glossterm>Value</glossterm>
+    <acronym>Value</acronym>
+    <glossdef>
+      <para>For the value column in <xref linkend="tbl.enc_code_table" />, the “value” is also called <emphasis>code</emphasis>, or <emphasis>character</emphasis>, or <emphasis>digit</emphasis>.</para>
+      <para>So actually:</para>
+      <para>Start code = start character</para>
+      <para>Check character = check digit</para>
+      <para>Function code = function character </para>
+      <para>......</para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="Variant"><glossterm>Variant</glossterm>
+    <acronym>Variant</acronym>
+    <glossdef>
+      <para>The variant is just the character set, so <emphasis>variant</emphasis> A/B/C is just the <emphasis>Character Set</emphasis> A/B/C</para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="UCC_EAN_128"><glossterm>UCC/EAN 128</glossterm>
+    <acronym>UCC/EAN 128</acronym>
+    <glossdef>
+      <para>This item means the symboloy for UCC 128 or EAN 128, often can be write like this:</para>
+      <para>UCC-128 or EAN-128, UCC/EAN-128, UCC.EAN 128, ......</para>
+      <para>It is just a variant of Code 128.</para>
+      <para>More please refer to <xref linkend="other_related_info" /></para>
+    </glossdef>
+</glossentry>
+
+</glossary>

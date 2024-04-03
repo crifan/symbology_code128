@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<bibliography xmlns="http://docbook.org/ns/docbook"
+    xml:id="reference"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<bibliomixed id="ref.code_128_symb">
+  <bibliosource><ulink url="http://www.barcodeisland.com/code128.phtml">CODE 128 SYMBOLOGY</ulink></bibliosource>
+  <author>barcodeisland</author>
+</bibliomixed>
+
+<bibliomixed id="ref.barcode_symbology">
+  <bibliosource><ulink url="http://www.taltech.com/resources/intro_to_bc/bcsymbol.htm">Bar Code Symbologies</ulink></bibliosource>
+  <author>taltech</author>
+</bibliomixed>
+
+<bibliomixed id="ref.bar_coding_basic">
+  <bibliosource><ulink url="http://www.taltech.com/resources/intro_to_bc/bcbascs.htm">Bar Coding Basics</ulink></bibliosource>
+  <author>taltech</author>
+</bibliomixed>
+
+<bibliomixed id="ref.all_about_code_128">
+  <bibliosource><ulink url="http://www.adams1.com/128code.html">All About Code 128 Barcode</ulink></bibliosource>
+  <author>adams1</author>
+</bibliomixed>
+
+<bibliomixed id="ref.wiki_code_128">
+  <bibliosource><ulink url="http://en.wikipedia.org/wiki/Code_128">Wiki: Code 128</ulink></bibliosource>
+  <author>wiki</author>
+</bibliomixed>
+
+<bibliomixed id="ref.code_128_spec">
+  <bibliosource><ulink url="http://www.barcodeman.com/info/c128.php3">Code 128 Specification</ulink></bibliosource>
+  <author>Lee Allen</author>
+</bibliomixed>
+
+<bibliomixed id="ref.gs1_128">
+  <bibliosource><ulink url="http://www.gs1-128.info/">GS1-128 Barcodes</ulink></bibliosource>
+  <author>Bar Code Graphics</author>
+</bibliomixed>
+
+<bibliomixed id="ref.code128_vs_ean128">
+  <bibliosource><ulink url="http://space.cnblogs.com/group/topic/3503/">关于区分CODE128和EAN128码</ulink></bibliosource>
+  <author>zhaoqing</author>
+</bibliomixed>
+
+</bibliography>
